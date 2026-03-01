@@ -39,7 +39,6 @@ export const logoutUser = async () => {
     try {
         return await api.post(`${AUTH_URL}/logout`, {}, { withCredentials: true });
     } catch (error) {
-        console.error('Logout error:', error);
         // Always clear local storage even if logout request fails
         if (typeof window !== 'undefined') {
             localStorage.removeItem('token');

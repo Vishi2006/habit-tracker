@@ -57,7 +57,6 @@ const createUser = async (req, res) => {
         })
 
     } catch (error) {
-        console.error('Registration error:', error);
         if (error.code === 11000) {
             return res.status(400).json({ message: "Email already exists" });
         }
@@ -104,7 +103,6 @@ const loginUser = async (req, res) => {
             return res.status(401).json({ message: "Invalid credentials" });
         }
     } catch (error) {
-        console.error('Login error:', error);
         res.status(500).json({ message: "Login failed. Please try again." });
     }
 };
@@ -119,7 +117,6 @@ const logoutUser = async (req, res) => {
       });
         return res.status(200).json({ message: "Logged out successfully" });
    } catch (error) {
-       console.error('Logout error:', error);
        res.status(500).json({ message: "Logout failed" });
    }
 };
@@ -140,7 +137,6 @@ const deleteUser = async (req, res) => {
         });
         return res.status(200).json({ message: "Account deleted successfully" });
     } catch (error) {
-        console.error('Delete user error:', error);
         res.status(500).json({ message: "Failed to delete account" });
     }
 };
